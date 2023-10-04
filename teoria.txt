@@ -1,0 +1,18 @@
+PDO 
+La extencion PDO (PHP Data Objects) de PHP consiste en desarrollar una capa de abstracción para accceder a diferentes
+Bases de datos. Utilizando PDO se logran estandarizar los diferentes mecanismos para relizar la conexion a una BD
+asi como, recuperar y modificar informacion. Sin embargo, PDO no estandariza SQL lo que significa que se debe 
+lidiar con las diferentes sintaxis de las instrucciones en cada administrador de base de datos 
+CREATE 
+READ 
+UPDATE
+DELETE 
+
+/*
+ATAQUES XSS (CROSS-SITE SCRIPTING)
+Conocido tambien como XSS
+
+Ocurre cuando un atacante es capaz de inyectar un script en el output de una aplicacion web
+de forma que se ejecuta en el navegador del cliente.
+
+*/
