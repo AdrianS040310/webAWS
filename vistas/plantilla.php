@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebApp - </title>
+    <title>WebApp - JASS</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
 
@@ -24,14 +24,8 @@ session_start();
 </head>
 
 <body>
-    <h1>WebApp - </h1>
-    <!-- Logotipo -->
-    <!-- GET: $_GET["varibale"] variables que se pasan como parametros via URl.
-    tambien conocidos como cadena de consulta a traves de la URL.
-    Cuando es la primera variable se separa con ? 
-    las que le siguein a continuacion se separan  con & -->
     <div class="container-fluid">
-        <h3 class="text-center py-3">Logo</h3>
+        <h3 class="text-center py-3">Logo WebApp - JASS</h3>
     </div>
     <div class="container-fluid bg-light"></div>
     <ul class="nav nav-justified py-2 nav-pills">
@@ -90,9 +84,6 @@ session_start();
     <div class="container-fluid">
         <div class="container py-5">
             <?php
-            // isset() comprueba si una varibale es diferente a null, osea si tiene algo esa variable, en caso de tener algo regresa un true
-            // y si no tiene regresa un false.
-
             if (isset($_GET["pagina"])) {
                 if (
                     $_GET["pagina"] == "inicio" ||
@@ -100,7 +91,6 @@ session_start();
                     $_GET["pagina"] == "registro" ||
                     $_GET["pagina"] == "salir" ||
                     $_GET["pagina"] == "editar"
-
                 ) {
                     include "paginas/" . $_GET["pagina"] . ".php";
                 } else {
@@ -112,7 +102,6 @@ session_start();
             ?>
         </div>
     </div>
-
 </body>
 
 </html>

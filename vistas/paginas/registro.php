@@ -37,30 +37,36 @@
                 <input class="form-check-input" type="checkbox" /> Recuerdame
             </label>
         </div>
-        <!-- Esto es una plantilla no estatica -->
         <?php
-        // $registro = new ControladorFormularios();
-        //  $registro -> ctrRegistro();
-
-        //  forma en que se instancia la clase statica
         $registro = ControladorFormularios::ctrRegistro();
-        // echo $registro;
+
         if ($registro == "ok") {
             echo '<script>
-        if(window.history.replaceState){
-            window.history.replaceState(null,null, window.location.href);
-        }
-        </script>';
-            echo '<div class = "alert alert-success">El usuario ha sido registrado</div>';
+                    if(window.history.replaceState){
+                        window.history.replaceState(null,null, window.location.href);
+                    }
+                </script>';
+            echo '<div class = "alert alert-success">The user has been registered</div>
+                <script>
+                setTimeout(function(){
+                    window.location = "index.php?pagina=ingreso";
+                }, 3000);
+                </script>';
         }
 
         if ($registro == "error") {
-            echo '<script>
-        if(window.history.replaceState){
-            window.history.replaceState(null,null, window.location.href);
-        }
-        </script>';
-            echo '<div class = "alert alert-danger">¡Error! No se permiten caracteres especiales.</div>';
+            echo '
+                <script>
+                    if(window.history.replaceState){
+                        window.history.replaceState(null,null, window.location.href);
+                    }
+                </script>';
+            echo '<div class = "alert alert-danger">¡Error! No special characters allowed.</div>
+                <script>
+                    setTimeout(function(){
+                        window.location = "index.php?pagina=registro";
+                    }, 3000);
+                </script>';
         }
         ?>
         <button type="submit" class="btn btn-primary">Enviar</button>

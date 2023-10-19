@@ -1,18 +1,22 @@
 <?php
-
 if (!isset($_SESSION["validarIngreso"])) {
     if ($_SESSION["validarIngreso"] != "ok") {
-        echo '<script> window.location = "index.php?pagina=ingreso";</script>';
+        echo '<script> 
+                window.location = "index.php?pagina=ingreso";
+            </script>';
         return;
     } else {
-        echo '<script> windows.location = "index.php?pagina=inicio";</script>';
+        echo '<script> 
+            window.location = "index.php?pagina=inicio";
+        </script>';
         return;
     }
 }
 
 $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 
-
+$actualizar = new ControladorFormularios();
+$actualizar->ctrActualizarRegistro();
 ?>
 <h2>Tabla de usuarios</h2>
 <table class="table">
@@ -36,12 +40,20 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
                 <td> <?php echo $value["f"] ?> </td>
                 <td>
                     <div class="btn-group">
-                        <a href='index.php?pagina=editar&id=' <?php echo $value["id"]; ?>><button class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button></a>
-                        <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        <a href=<?php echo 'index.php?pagina=editar&token=' . $value["token"]; ?>>
+                            <button class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                        </a>
                     </div>
+                    <form method="post">
+                        <input type="hidden" value="<?php echo $value["token"]; ?>" name="eliminarRegistro">
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        <?php
+                        $eliminar = new ControladorFormularios();
+                        $eliminar->ctrEliminarRegistro();
+                        ?>
+                    </form>
                 </td>
             </tr>
         <?php endforeach ?>
-
     </tbody>
 </table>

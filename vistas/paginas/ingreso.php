@@ -27,12 +27,12 @@
                 <input class="form-check-input" type="checkbox" /> Recuerdame
             </label>
         </div>
-        <!-- Esto es una plantilla no estatica -->
+
         <?php
         $ingreso = new ControladorFormularios();
         $ingreso->ctrIngreso();
-
         ?>
+
         <button type="submit" class="btn btn-primary">Ingresar</button>
     </form>
 </div>
